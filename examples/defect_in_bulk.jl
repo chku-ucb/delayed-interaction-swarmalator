@@ -37,8 +37,8 @@ function main()
 
     R = sqrt.((x .- mean(x, dims=2)) .^2 .+ (y .- mean(y, dims=2)) .^2)
     avgR = mean(R, dims=2)[:]
-    rbulk = R_bulk_long_tau(x, y)
-    ndef, n6p, nbulk = count_defect(x,y,time,0.85*rbulk)
+    rbulk = R_bulk_long_tau(x, y) # Calculate the bulk radius
+    ndef, n6p, nbulk = count_defect(x,y,time,0.85*rbulk) # using 85% of the bulk radius 
     fracs = ndef ./ nbulk
     itx = findfirst(x -> x>t_end/2, time)
     avg = mean(fracs[itx:end])

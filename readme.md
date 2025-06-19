@@ -34,5 +34,11 @@ Threads.nthreads()
 
 ## Examples
 
+- `animate_system.jl`: this script simulates the system with a given set of parameters and number of particles, and saves the animation of the system to mp4 file.
+- `hexatic_order.jl`: this script simulates the system with a given set of parameters and number of particles, and calculates the hexatic order parameter for the system. Consequently, it displays the results in animation and saves the results to a mp4 file.
+- `defect_in_bulk.jl`: this script simulates the system, find the bulk radius of the system and count the number of defects in the system. It also displays the results in plot. In addition, you can change the function to estimate the bulk radius to be `R_solid_core` to find the solid core radius of the system with $$\tau \le 9.0$$. 
 
-## 
+
+## Operation 
+
+This section is a brief overview of the process that use to find the defect fraction for each time delays.
