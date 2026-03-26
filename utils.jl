@@ -223,13 +223,12 @@ function orientation_order(tri, idx, x, y)
     The orientation order parameter is defined as the average of the complex exponential of the angles
     between the particle and its neighbours, normalized by the number of neighbours.
     """
-    N = length(get_neighbours(tri)[idx])
+    nn = [i for i in collect(get_neighbours(tri)[idx]) if i > 0]
+    N = length(nn)
     psi = ComplexF64(0.)
-    for i in collect(get_neighbours(tri)[idx])
-        if i > 0
-            θ = atan(y[i]-y[idx],x[i]-x[idx])
-            psi += ℯ^(1im*6*θ)
-        end
+    for i in nn
+        θ = atan(y[i] - y[idx], x[i] - x[idx])
+        psi += ℯ^(1im * 6 * θ)
     end
-    return psi/N
+    return psi / N
 end
