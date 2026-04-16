@@ -8,7 +8,7 @@ This is a repository for code that use in the article with aforementioned title.
 ## Preparations
 
 1. Install Julia from [julialang.org](https://julialang.org/downloads/).
-2. Open Julia and install the required packages. After clone the repository, run the following commands in the Julia REPL:
+2. Open Julia and install the required packages. After cloning the repository, run the following commands in the Julia REPL:
 ```julia
 using Pkg
 Pkg.activate("env")
@@ -39,14 +39,14 @@ Threads.nthreads()
 
 ## Examples
 
-- `animate_system.jl`: this script simulates the system with a given set of parameters and number of particles, and saves the animation of the system to mp4 file.
+- `animate_system.jl`: this script simulates the system with a given set of parameters and number of particles, and saves the results to an mp4 file.
 - `hexatic_order.jl`: this script simulates the system with a given set of parameters and number of particles, and calculates the hexatic order parameter for the system. Consequently, it displays the results in animation and saves the results to a mp4 file.
-- `defect_in_bulk.jl`: this script simulates the system, find the bulk radius of the system and count the number of defects in the system. It also displays the results in plot. In addition, you can change the function to estimate the bulk radius to be `R_solid_core` to find the solid core radius of the system with $$\tau \le 9.0$$. 
+- `defect_in_bulk.jl`: this script simulates the system, finds the bulk radius of the system and counts the number of defects in the system. It also displays the results in a plot. In addition, you can change the function to estimate the bulk radius to be `R_solid_core` to find the solid core radius of the system with $$\tau \le 9.0$$. 
 
 
 ## Operation
 
-This section is a brief overview of the process that use to find the defect fraction for each time delays.
+This section is a brief overview of the process that are used for finding the defect fraction for different time delays.
 
 The `operations` directory contains a pipeline of scripts that automate the entire workflow:
 
@@ -78,7 +78,7 @@ This single command will sequentially handle the workflow:
 Before executing the pipeline, you must ensure your paths are configured accurately to match your local setup. The following scripts have vital path variables:
 
 - `generic_bash.sh` & `get_track_file.sh`: Set `FIJI_PATH` to point to your local ImageJ/Fiji executable (e.g., `~/Fiji/Fiji.app/Contents/MacOS/ImageJ`).
-- `get_track_file.sh`, `merge_tif.sh` & `generic_bash.sh`: Verify `BASE_PATH` points correctly to your input defect plot sequence directories (e.g., `./track_55_`) and `OUTPUT_BASE_DIR` maps to your output directory for `.tif` stacks.
+- `get_track_file.sh`, `merge_tif.sh` & `generic_bash.sh`: Verify that `BASE_PATH` points correctly to your input defect plot sequence directories (e.g., `./track_55_`) and `OUTPUT_BASE_DIR` maps to your output directory for `.tif` stacks.
 - `fijiscript.py`: Ensure `input_dir` accurately points to your compiled sequence `.tif` stacks and `output_dir` denotes where to construct tracking `.xml` files.
 
 *(Note: These variables exist near the top lines of each respective file and are pre-annotated with inline comments for convenience.)*
