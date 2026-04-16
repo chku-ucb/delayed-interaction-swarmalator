@@ -41,7 +41,7 @@ Threads.nthreads()
 
 - `animate_system.jl`: this script simulates the system with a given set of parameters and number of particles, and saves the results to an mp4 file.
 - `hexatic_order.jl`: this script simulates the system with a given set of parameters and number of particles, and calculates the hexatic order parameter for the system. Consequently, it displays the results in animation and saves the results to a mp4 file.
-- `defect_in_bulk.jl`: this script simulates the system, finds the bulk radius of the system and counts the number of defects in the system. It also displays the results in a plot. 
+- `defect_in_bulk.jl`: this script simulates the system, finds the bulk radius of the system and counts the number of defects in the system. For experiments where $$\tau \le \tau_c$$, the script includes an option to switch the radius metric function from 'R_bulk_long_tau' to 'R_solid_core' to capture the solid core instead of bulk radius.
 
 
 ## Operation
