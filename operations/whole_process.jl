@@ -35,7 +35,7 @@ end
 function cal_def2(time, x, y, θ, tau, id)
 
     R = sqrt.((x .- mean(x, dims=2)) .^2 .+ (y .- mean(y, dims=2)) .^2)
-    if tau < 13
+    if tau < 9.5
         rbulk =  R_solid_core(x, y)
     else
         rbulk = R_bulk_long_tau(x, y)
