@@ -56,6 +56,7 @@ The `operations` directory contains a pipeline of scripts that automate the enti
 4. **`get_track_file.sh`**: A shell script generating Fiji/ImageJ macros to convert the generated image sequences into 8-bit inverted TIF stacks.
 5. **`fijiscript.py`**: A Python script intended to be run via Fiji's TrackMate plugin in headless mode. It processes the TIF stacks to detect and track the spots/defects, outputting tracking coordinates as XML files.
 6. **`generic_bash.sh`**: A master bash script that ties the tracking pipeline together—it consecutively runs `get_figs_all.jl`, executes `get_track_file.sh`, runs the Fiji tracker (`fijiscript.py`), and analyzes the track crossings.
+7. **`count_track_crossings.jl`**: A Julia script that evaluates the defect trajectories from the XML files to count the number of track crossings over a specified radius. **Note:** You can set the threshold to be `130` because the plot in `get_figs_all.jl` is set to vary by bulk radius and set `dpi=100` as well.
 
 ### Running the Tracking Pipeline
 
