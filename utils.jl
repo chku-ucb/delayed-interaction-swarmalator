@@ -195,23 +195,17 @@ function count_defect(x,y,time,rbulk)
     and counts the number of neighbours for each particle at each time step.
     The number of neighbours is used to classify particles as defects, 6-fold, or bulk.
     """
-    N = size(x,2)
+    N = size(x, 2)
     ndef = zeros(length(time))
     n6p = zeros(length(time))
     nbulk = zeros(length(time))
     for t in 1:length(time)
-        pts = vcat(x[t,:]',y[t,:]')
+        pts = vcat(x[t, :]', y[t, :]')
         tri = triangulate(pts)
-        nn = []
-        for idx in 1:N
-            if radii(x,y,t,idx)<rbulk
-                nns = [i for i in collect(get_neighbours(tri)[idx]) if i > 0]
-                push!(nn, length(nns))
-            end
-        end
-        ndef[t] = count(x->x==5,nn)
-        n6p[t] = count(x->x==6,nn)
-        ndef[t] += count(x->x==7,nn)
+        nn = [length(get_neighbours(tri)[i]) for i in 1:N if radii(x, y, t, i) < rbulk]
+        ndef[t] = count(x -> x == 5, nn)
+        n6p[t] = count(x -> x == 6, nn)
+        ndef[t] += count(x -> x == 7, nn)
         nbulk[t] = length(nn)
     end
     return ndef, n6p, nbulk
